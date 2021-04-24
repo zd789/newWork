@@ -82,6 +82,7 @@ $(function() {
                 };
                 layui.layer.msg(res.message, { icon: 6 }, function() {
                     // 把token保存到本地存储
+                    console.log(res.token);
                     localStorage.setItem('token', res.token);
                     // 跳转到后台首页
                     location.href = '/index.html';
