@@ -18,7 +18,17 @@ $(function() {
                 }
                 // 渲染用户信息
                 renderAvatar(res.data);
-            }
+            },
+            // complete: function(res) {
+            //     console.log(res);
+            //     console.log(res.responseJSON);
+            //     if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
+            //         // 清除本地token
+            //         localStorage.removeItem('token');
+            //         // 页面跳转
+            //         location.href = '/login.html'
+            //     }
+            // }
         });
     }
     // ----------------------------------
@@ -42,7 +52,19 @@ $(function() {
         }
     };
 
+    // ----------------------------
+    // 退出登录
+    $('#logout').on('click', function() {
+        layer.confirm('确定退出?', { icon: 3, title: '提示' }, function(index) {
+            //do something
+            // 清除本地token
+            localStorage.removeItem('token');
+            // 页面跳转
+            location.href = '/login.html'
 
+            layer.close(index);
+        });
+    });
 
 
 
